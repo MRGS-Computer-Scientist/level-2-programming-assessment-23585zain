@@ -1,7 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
-from tkinter import messagebox
-import App
+from tkinter import Canvas, messagebox
+import matplotlib
+import numpy as np 
+import matplotlib.pyplot as plt
 
 class BudgetApp:
     def __init__(self, root):
@@ -15,7 +17,7 @@ class BudgetApp:
         title.grid(row=0, column=0, columnspan=2, pady=10)
 
         # Input fields
-        self.income_var = tk.StringVar()
+        self.income_var = tk.StringVar() 
         self.name_var = tk.StringVar()
         self.spent_var = tk.StringVar()
 
@@ -40,6 +42,11 @@ class BudgetApp:
 
         self.spent_amount_label = tk.Label(self.root, text="Spent: $0.00")
         self.spent_amount_label.grid(row=8, column=0, columnspan=2, pady=5)
+        
+        # Pie chart
+
+
+
 
         # Optional fixed expenses
         tk.Label(self.root, text="Optionals").grid(row=9, column=0, columnspan=2, pady=10)

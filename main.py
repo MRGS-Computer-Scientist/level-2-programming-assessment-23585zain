@@ -1,5 +1,7 @@
-from App import *
+from app import *
 
 if __name__ == "__main__":
-    app = App()
+    root = tk.Tk()
+    app = BudgetApp(root)
+    root.mainloop()
     
