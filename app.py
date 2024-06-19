@@ -1,9 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import Canvas, messagebox
-import matplotlib
-import numpy as np 
-import matplotlib.pyplot as plt
+
 
 class BudgetApp:
     def __init__(self, root):
@@ -20,6 +18,10 @@ class BudgetApp:
         self.income_var = tk.StringVar() 
         self.name_var = tk.StringVar()
         self.spent_var = tk.StringVar()
+
+    
+
+
 
         tk.Label(self.root, text="Insert Your Income").grid(row=1, column=0, sticky="e")
         tk.Entry(self.root, textvariable=self.income_var).grid(row=1, column=1, pady=5)
