@@ -1,7 +1,6 @@
-import tkinter as tk
+import tkinter as tk 
 from tkinter import ttk
-from tkinter import Canvas, messagebox
-
+from tkinter import messagebox
 
 class BudgetApp:
     def __init__(self, root):
@@ -15,13 +14,9 @@ class BudgetApp:
         title.grid(row=0, column=0, columnspan=2, pady=10)
 
         # Input fields
-        self.income_var = tk.StringVar() 
-        self.name_var = tk.StringVar()
+        self.income_var = tk.StringVar()
+        self.name_var = tk.StringVar()  
         self.spent_var = tk.StringVar()
-
-    
-
-
 
         tk.Label(self.root, text="Insert Your Income").grid(row=1, column=0, sticky="e")
         tk.Entry(self.root, textvariable=self.income_var).grid(row=1, column=1, pady=5)
@@ -44,11 +39,6 @@ class BudgetApp:
 
         self.spent_amount_label = tk.Label(self.root, text="Spent: $0.00")
         self.spent_amount_label.grid(row=8, column=0, columnspan=2, pady=5)
-        
-        # Pie chart
-
-
-
 
         # Optional fixed expenses
         tk.Label(self.root, text="Optionals").grid(row=9, column=0, columnspan=2, pady=10)
@@ -74,6 +64,11 @@ class BudgetApp:
         try:
             income = float(self.income_var.get())
             spent = float(self.spent_var.get())
+
+            # Check if the income is greater than $10
+            if income <= 10:
+                raise ValueError("The minimum income should be more than $10.")
+
             available = income - spent
             spent_percentage = (spent / income) * 100
 
@@ -81,13 +76,12 @@ class BudgetApp:
             self.spent_label.config(text=f"Spent: {spent_percentage:.0f}%")
             self.available_label.config(text=f"Available: ${available:.2f}")
             self.spent_amount_label.config(text=f"Spent: ${spent:.2f}")
-        except ValueError:
-            messagebox.showerror("Input Error", "Please enter valid income and spent amounts.")
+        except ValueError as e:
+            messagebox.showerror("Input Error", str(e))
 
     def reset_expenses(self):
         self.income_var.set("")
         self.name_var.set("")
-        self.goals_var.set("")
         self.spent_var.set("")
 
         self.income_label.config(text="Income: $0.00")
