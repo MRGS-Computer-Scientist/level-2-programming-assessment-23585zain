@@ -13,7 +13,7 @@ class BudgetApp:
 
     def create_widgets(self):
         # Title
-        title = tk.Label(self.root, text="Budget Yourself", font=("Helvetica", 18, "bold"), fg="yellow")
+        title = tk.Label(self.root, text="Budget Yourself", font=("Helvetica", 18, "bold"), fg="brown")
         title.grid(row=0, column=0, columnspan=2, pady=10)
 
         # Input fields
